@@ -1,25 +1,25 @@
-#! /usr/bin/bash
+#!/usr/bin/bash
 mkdir 1st
-mkdir 2nd 
 cd 1st
 git init
-touch f1
-git add f1
+echo "Content 1" > file1
+git add file1
 git commit -m "1st"
-touch f2
-git add f2 
+cp file1 file2
+git add file2
 git commit -m "2nd"
 git graph
 cd -
+
+mkdir 2nd 
 cd 2nd
 git init
-touch f1
-git add f1
+echo "Content 1" > file1
+git add file1
 git commit -m "1st"
-touch f2
-git rm f1
-git commit --amend
-git add f2
+mv file1 file2
+git rm file1
+git add file2
 git commit -m "2nd"
 git graph
 cd -

@@ -1,15 +1,28 @@
 #! /usr/bin/bash
+
+branch_at_ancestor(){
+    # First argument will contain hash of function
+    echo "Processing commit $2"
+    git branch branch$2 $1
+    parent=$(git rev-parse $1^)
+
+    if [[ -n $(git cat-file -p $1 | grep parent) ]]
+    then
+        branch_at_ancestor $parent $(($2 + 1)) 
+    fi
+}
 git init
-for ((i=1;i<=10;i++))
+for i in $(seq 10)
 do 
-touch $i
-git add $i
-git commit -m "This is commit count ${i}"
+    echo "This is $i th file" > $i
+    git add $i
+    git commit -m "This is commit count $i"
 done
-A=$(git rev-parse HEAD)
-for ((t=10;t>1;t--))
-do
-A=$(git rev-parse ${A}^)
-git checkout $A
-git branch branch$t
-done
+
+
+initial=$(git rev-parse HEAD^)
+
+branch_at_ancestor $initial 1
+
+git graph
+ 

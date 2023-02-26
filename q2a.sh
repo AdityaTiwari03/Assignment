@@ -1,15 +1,18 @@
 #! /usr/bin/bash
 git init
-for ((i=1;i<=10;i++))
+for i in $(seq 10)
 do 
-touch $i
-git add $i
-git commit -m "This is commit count ${i}"
+	echo "This is $i th file" > $i
+	git add $i
+	git commit -m "This is commit count $i"
 done
-for ((i=10;i>1;i--))
+
+iter=$(git rev-parse HEAD)
+for i in $(seq 9)
 do
-git checkout HEAD~
-git branch branch$i
+	iter=$(git rev-parse $iter~)
+	git branch branch$i $iter
 done
+
 git graph
  
