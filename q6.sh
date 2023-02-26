@@ -1,21 +1,26 @@
 #! /usr/bin/bash
 git init
-for ((i=1;i<=50;i++))
+for i in $(seq 50)
 do 
-touch $i
-git add $i
-git commit  -m "commit no $i"
+	echo "File no $i" > $i
+	git add $i
+	git commit  -m "This is commit number $i"
 done
-str=$(git log | awk '/^commit/ {print $2}')
-arr=($str);
-b=$(awk 'BEGIN {print int(rand() * 50)}')
-a=${arr[$b]}
-echo $a
-#via single call of awk
-#min=1
-#max=50
-#range=$(($max-$min+1))
-#random=$(($RANDOM % $range + $min))
-#git log | awk '/^commit/, NR=$random {print $2}
-git checkout $a
-git branch hello
+
+echo -e "\nUsing two seperate invocations of awk"
+hash=$(git log | awk '/^commit/ {print $2}' | \
+	awk -v seed=$RANDOM 'BEGIN {srand(seed); commit=int(rand() * 50)}
+	{if(NR==commit)print $0}')
+git cat-file -p $hash
+
+echo -e "\nDoing the same in single invocation of awk"
+hash=$(git log | awk -v seed=$RANDOM ' 
+BEGIN {i=0; srand(seed); commit=0; while(commit==0){commit=int(rand() * 50)}}
+	/^commit/ {i=i+1; if(i==commit)print $2}')
+git cat-file -p $hash
+
+echo -e "\nSince commits returned by the two attempts do not match, we will generate graph with only second attempt.\n"
+
+git branch new_branch $hash
+git checkout new_branch
+git graph -n clhurdsag
