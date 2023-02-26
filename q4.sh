@@ -5,5 +5,5 @@ git init
 git add f1
 git commit -m "1st"
 echo "first file changed" > f1
-git commit -m "Your commit message" $a --no-verify
+git commit -a -m "Your commit message"
 git status

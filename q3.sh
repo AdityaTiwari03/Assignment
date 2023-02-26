@@ -1,18 +1,17 @@
 #! /usr/bin/bash
 git init
-touch f1
+echo "Content 1" > f1
 git add f1
-git commit -m "234"
+git commit -m "First Commit, shared"
 git branch feature
-touch f2
-git add f2
-git commit -m "345678"
+echo "Content 2" > f1
+git add f1
+git commit -m "Commit on master"
 git checkout feature
-echo "qwerty" > f2
-git add f2
-git commit -m "123456"
+echo "qwerty" > f1
+git add f1
+git commit -m "Commit on feature"
 git checkout master
-#git merge feature
-#it is conflict
-git rebase feature
-git graph
+git merge feature
+git mergetool
+git commit -m "Merge feature into master"
