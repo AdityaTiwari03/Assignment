@@ -8,4 +8,18 @@
 
 # Question 4
 
-- In order to commit a file without staging it, we can use `-a` option of `git commit` command. This will add update the tracked and modified files to the new commit.
+- By using the `-a` switch with the `commit` command we can automatically `add` changes from all tracked files and automatically `rm` files in the index that have been removed from the working tree, and then perform the actual commit
+
+# Question 8
+
+Use git stash when you want to record the current state of the working
+directory and the index, but want to go back to a clean working
+directory. The command saves your local modifications away and reverts
+the working directory to match the HEAD commit.
+
+The modifications stashed away by this command can be listed with git
+stash list, inspected with git stash show, and restored (potentially on
+top of a different commit) with git stash apply. Calling git stash
+without any arguments is equivalent to git stash push. A stash is by
+default listed as "WIP on branchname ...", but you can give a more
+descriptive message on the command line when you create one.
