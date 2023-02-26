@@ -1,5 +1,5 @@
 #! /usr/bin/bash
-git init
+git init -b master
 for i in $(seq 50)
 do 
 	echo "File no $i" > $i

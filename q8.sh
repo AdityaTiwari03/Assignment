@@ -3,7 +3,7 @@
 # Using 80 dashes as seperator
 seperator='--------------------------------------------------------------------------------'
 
-git init
+git init -b master
 echo "Version 1" > f1
 git add f1
 git commit  -m "This is commit number 1"

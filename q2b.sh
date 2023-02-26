@@ -11,7 +11,7 @@ branch_at_ancestor(){
         branch_at_ancestor $parent $(($2 + 1)) 
     fi
 }
-git init
+git init -b master
 for i in $(seq 10)
 do 
     echo "This is $i th file" > $i

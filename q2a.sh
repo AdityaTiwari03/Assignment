@@ -1,5 +1,5 @@
 #! /usr/bin/bash
-git init
+git init -b master
 for i in $(seq 10)
 do 
 	echo "This is $i th file" > $i

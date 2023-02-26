@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 mkdir 1st
 cd 1st
-git init
+git init -b master
 echo "Content 1" > file1
 git add file1
 git commit -m "1st"
@@ -13,7 +13,7 @@ cd -
 
 mkdir 2nd 
 cd 2nd
-git init
+git init -b master
 echo "Content 1" > file1
 git add file1
 git commit -m "1st"

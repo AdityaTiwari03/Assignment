@@ -1,5 +1,5 @@
 #! /usr/bin/bash
-git init
+git init -b master
 min=1
 max=5
 range=$(($max-$min+1))

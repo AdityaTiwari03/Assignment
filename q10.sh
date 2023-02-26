@@ -16,7 +16,7 @@ mkdir /tmp/STT-SAD-Assignment2-q10
 pushd /tmp/STT-SAD-Assignment2-q10
 git init --bare 
 popd
-git init
+git init -b master
 git remote add origin /tmp/STT-SAD-Assignment2-q10
 
 # first commit

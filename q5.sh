@@ -1,5 +1,5 @@
 #! /usr/bin/bash
-git init
+git init -b master
 echo "Hi" > f1
 git add f1
 git commit -m "1st"
