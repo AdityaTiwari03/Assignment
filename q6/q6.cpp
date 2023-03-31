@@ -1,41 +1,28 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <ctime>
+#include <unistd.h>
+
 using namespace std;
 
-void insertionSort(int arr[], int n)
-{
-	int i, key, j;
-	for (i = 1; i < n; i++)
-	{
-		key = arr[i];
-		j = i - 1;
-		while (j >= 0 && arr[j] > key)
-		{
-			arr[j + 1] = arr[j];
-			j = j - 1;
-		}
-		arr[j + 1] = key;
-	}
+void beep(){
+  system("paplay /home/sbdaule/Music/beep-06.wav");
 }
 
-void printArray(int arr[], int n)
-{
-	int i;
-	for (i = 0; i < n; i++)
-		cout << arr[i] << " ";
-	cout << endl;
-}
+int main(){
+  time_t startTime;
+  time_t currentTime;
+  int interval = 20;
+  beep();
+  startTime = time(NULL);
 
-int main()
-{   
-    int N;
-    cin>>N;
-    int arr[N];
-    for(int i = 0; i<N; i++){
-        cin>>arr[i];
+  while(true){
+    currentTime = time(NULL);
+    cout << '\a';
+    if(difftime(currentTime, startTime) >= interval){
+      beep();
+      startTime = currentTime;
     }
-
-	insertionSort(arr, N);
-	printArray(arr, N);
-
-	return 0;
+    sleep(interval);
+  }
+  return 0;
 }

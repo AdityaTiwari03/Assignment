@@ -1,0 +1,107 @@
+Attaching to program: /home/sbdaule/Documents/IIT Bhilai/Sem IV/CS200 STT II/Assignment/Assignment 4/Assignment/q6/q6, process 104816
+Reading symbols from /usr/lib/libstdc++.so.6...
+Reading symbols from /usr/lib/libm.so.6...
+(No debugging symbols found in /usr/lib/libm.so.6)
+Reading symbols from /usr/lib/libgcc_s.so.1...
+Reading symbols from /usr/lib/libc.so.6...
+(No debugging symbols found in /usr/lib/libc.so.6)
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+(No debugging symbols found in /lib64/ld-linux-x86-64.so.2)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+0x00007fb4aace5d77 in clock_nanosleep () from /usr/lib/libc.so.6
+1	#include <iostream>
+2	#include <ctime>
+3	#include <unistd.h>
+4	
+5	using namespace std;
+6	
+7	void beep(){
+8	  system("paplay /home/sbdaule/Music/beep-06.wav");
+9	}
+10	
+11	int main(){
+12	  time_t startTime;
+13	  time_t currentTime;
+14	  int interval = 20;
+15	  beep();
+16	  startTime = time(NULL);
+17	
+18	  while(true){
+19	    currentTime = time(NULL);
+20	    cout << '\a';
+Breakpoint 1 at 0x55e2ad3e81d1: file q6.cpp, line 19.
+Continuing.
+
+Breakpoint 1, main () at q6.cpp:19
+19	    currentTime = time(NULL);
+startTime = 1680276616
+currentTime = 1680276616
+interval = 20
+[Detaching after vfork from child process 104862]
+
+Breakpoint 1, main () at q6.cpp:19
+19	    currentTime = time(NULL);
+startTime = 1680276681
+currentTime = 1680276681
+interval = 20
+[Detaching after vfork from child process 104959]
+
+Breakpoint 1, main () at q6.cpp:19
+19	    currentTime = time(NULL);
+startTime = 1680276701
+currentTime = 1680276701
+interval = 20
+[Detaching after vfork from child process 104964]
+
+Breakpoint 1, main () at q6.cpp:19
+19	    currentTime = time(NULL);
+startTime = 1680276722
+currentTime = 1680276722
+interval = 20
+[Detaching after vfork from child process 104967]
+
+Breakpoint 1, main () at q6.cpp:19
+19	    currentTime = time(NULL);
+startTime = 1680276743
+currentTime = 1680276743
+interval = 20
+[Detaching after vfork from child process 104971]
+
+Breakpoint 1, main () at q6.cpp:19
+19	    currentTime = time(NULL);
+startTime = 1680276763
+currentTime = 1680276763
+interval = 20
+[Detaching after vfork from child process 105062]
+
+Breakpoint 1, main () at q6.cpp:19
+19	    currentTime = time(NULL);
+startTime = 1680276875
+currentTime = 1680276875
+interval = 20
+[Detaching after vfork from child process 105069]
+
+Breakpoint 1, main () at q6.cpp:19
+19	    currentTime = time(NULL);
+startTime = 1680276896
+currentTime = 1680276896
+interval = 20
+[Detaching after vfork from child process 105071]
+
+Breakpoint 1, main () at q6.cpp:19
+19	    currentTime = time(NULL);
+startTime = 1680276916
+currentTime = 1680276916
+interval = 20
+[Detaching after vfork from child process 105076]
+
+Breakpoint 1, main () at q6.cpp:19
+19	    currentTime = time(NULL);
+startTime = 1680276936
+currentTime = 1680276936
+interval = 20
+[Detaching after vfork from child process 105083]
+
+Breakpoint 1, main () at q6.cpp:19
+19	    currentTime = time(NULL);
