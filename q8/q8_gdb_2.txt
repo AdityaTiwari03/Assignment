@@ -1,0 +1,9 @@
+Starting program: /home/sbdaule/Documents/IIT Bhilai/Sem IV/CS200 STT II/Assignment/Assignment 4/Assignment/q8/q8_1 
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.archlinux.org>
+Debuginfod has been enabled.
+To make this setting permanent, add 'set debuginfod enabled on' to .gdbinit.
+                                                                                                                                                                                                                                                                                                                                                                                [Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+[Inferior 1 (process 96132) exited normally]
