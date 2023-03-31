@@ -1,0 +1,182 @@
+// executed break q7.c:6 command
+
+Breakpoint 1 at 0x1158: file q7.c, line 6.
+
+// executed run command
+
+Starting program: /home/vinayak/Documents/9_Loosers/q7/q7 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, recur (varIter=11) at q7.c:6
+6	varScale = varIter*5;
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 1, recur (varIter=10) at q7.c:6
+6	varScale = varIter*5;
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 1, recur (varIter=9) at q7.c:6
+6	varScale = varIter*5;
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 1, recur (varIter=8) at q7.c:6
+6	varScale = varIter*5;
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 1, recur (varIter=7) at q7.c:6
+6	varScale = varIter*5;
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 1, recur (varIter=6) at q7.c:6
+6	varScale = varIter*5;
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 1, recur (varIter=5) at q7.c:6
+6	varScale = varIter*5;
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 1, recur (varIter=4) at q7.c:6
+6	varScale = varIter*5;
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 1, recur (varIter=3) at q7.c:6
+6	varScale = varIter*5;
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 1, recur (varIter=2) at q7.c:6
+6	varScale = varIter*5;
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 1, recur (varIter=1) at q7.c:6
+6	varScale = varIter*5;
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 1, recur (varIter=0) at q7.c:6
+6	varScale = varIter*5;
+
+// executed break q7.c:9 command
+Breakpoint 2 at 0x555555555194: file q7.c, line 9.
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 2, recur (varIter=0) at q7.c:9
+9	printf("Return a: varIter = %d, varScale = %d\n", varIter, varScale);
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 2, recur (varIter=1) at q7.c:9
+9	printf("Return a: varIter = %d, varScale = %d\n", varIter, varScale);
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 2, recur (varIter=2) at q7.c:9
+9	printf("Return a: varIter = %d, varScale = %d\n", varIter, varScale);
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 2, recur (varIter=3) at q7.c:9
+9	printf("Return a: varIter = %d, varScale = %d\n", varIter, varScale);
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 2, recur (varIter=4) at q7.c:9
+9	printf("Return a: varIter = %d, varScale = %d\n", varIter, varScale);
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 2, recur (varIter=5) at q7.c:9
+9	printf("Return a: varIter = %d, varScale = %d\n", varIter, varScale);
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 2, recur (varIter=6) at q7.c:9
+9	printf("Return a: varIter = %d, varScale = %d\n", varIter, varScale);
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 2, recur (varIter=7) at q7.c:9
+9	printf("Return a: varIter = %d, varScale = %d\n", varIter, varScale);
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 2, recur (varIter=8) at q7.c:9
+9	printf("Return a: varIter = %d, varScale = %d\n", varIter, varScale);
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 2, recur (varIter=9) at q7.c:9
+9	printf("Return a: varIter = %d, varScale = %d\n", varIter, varScale);
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 2, recur (varIter=10) at q7.c:9
+9	printf("Return a: varIter = %d, varScale = %d\n", varIter, varScale);
+
+// executed continue command
+
+Continuing.
+
+Breakpoint 2, recur (varIter=11) at q7.c:9
+9	printf("Return a: varIter = %d, varScale = %d\n", varIter, varScale);
+
+// executed continue command
+
+Continuing.
+[Inferior 1 (process 13809) exited normally]
+

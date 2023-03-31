@@ -1,0 +1,17 @@
+// executed break q8.cpp:7 command
+Breakpoint 1 at 0x55555555519c: file q8.cpp, line 7.
+
+// executed run command
+Starting program: /home/vinayak/Documents/9_Loosers/q8/q8 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main () at q8.cpp:7
+7	    cout<<n+(n*n);
+
+// executed print n command
+$1 = 10
+
+// executed continue command
+Continuing.
+[Inferior 1 (process 39502) exited normally]

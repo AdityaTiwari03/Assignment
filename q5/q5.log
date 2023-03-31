@@ -1,0 +1,206 @@
+// The first 13 commands are executed on q5.cpp. and the remaining on q5new.cpp.
+
+// 1. run command - to run a program.
+
+// executed run 5 1 3 5 2 4
+Starting program: /home/vinayak/Documents/9_Loosers/q5/q5 5 1 3 5 2 4
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[Inferior 1 (process 42466) exited normally]
+
+
+// 2. help command - to get help about gdb commands
+
+aliases -- User-defined aliases of other commands.
+breakpoints -- Making program stop at certain points.
+data -- Examining data.
+files -- Specifying and examining files.
+internals -- Maintenance commands.
+obscure -- Obscure features.
+running -- Running the program.
+stack -- Examining the stack.
+status -- Status inquiries.
+support -- Support facilities.  // pressed c to continue without paging.
+text-user-interface -- TUI is the GDB text based interface.
+tracepoints -- Tracing of program execution without stopping the program.
+user-defined -- User-defined commands. 
+
+Type "help" followed by a class name for a list of commands in that class.
+Type "help all" for the list of all commands.
+Type "help" followed by command name for full documentation.
+Type "apropos word" to search for commands related to "word".
+Type "apropos -v word" for full documentation of commands related to "word".
+Command name abbreviations are allowed if unambiguous.
+
+
+// 3. break command - to set a breakpoint at a particular line or a function
+
+// executed break insertionSort
+Breakpoint 1 at 0x11f1
+
+
+// 4. continue command - to proceed onto the next breakpoint from current breakpoint
+
+// first executed run command
+Breakpoint 1, 0x00005555555551f1 in insertionSort(int*, int) ()
+
+// then executed continue command
+Continuing.
+[Inferior 1 (process 38723) exited normally]
+
+
+// 5. next command - to execute the next instruction after it encounters a breakpoint.
+
+// first executed run 5 1 3 5 2 4
+Breakpoint 1, 0x00005555555551f1 in insertionSort(int*, int) ()
+
+// then executed next command
+Single stepping until exit from function _Z13insertionSortPii,
+which has no line number information.
+0x0000555555555385 in main ()
+
+
+// 6. clear command - to delete a breakpoint at a particular line or a particular function.
+
+// executed clear insertionSort
+Deleted breakpoint 1
+
+
+// 7. info breakpoints command - to display information about all declared breakpoints.
+
+Num     Type           Disp Enb Address            What
+3       breakpoint     keep y   0x00000000000012b7 <printArray(int*, int)+8>
+
+
+// 8. show args command - to print the default arguments that will be passed if the run command is executed.
+
+Argument list to give program being debugged when it is started is "5 1 3 5 2 4".
+
+
+// 9. display command - to enable automatic displaying of expressions each time whenever the execution reaches the breakpoint.
+
+// executed run command
+Breakpoint 1, main () at q5.cpp:33
+33	    for(int i = 0; i<N; i++){
+
+// executed display /d i
+1: /d i = 0
+
+
+// 10. print command - to print the value of a given expression.
+
+// executed run command
+Breakpoint 1, main () at q5.cpp:33
+33	    for(int i = 0; i<N; i++){
+
+// executed print i
+$1 = 0
+
+
+// 11. step command - to execute just the next line of code after reaching a breakpoint.
+
+// executed run command
+Starting program: /home/vinayak/Documents/9_Loosers/q5/q5 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, insertionSort (arr=0x7fffffffdae0, n=5) at q5.cpp:9
+9			key = arr[i];
+
+// executed step command
+10			j = i - 1;
+
+
+// 12.  watch command - to pause a program whenever a watched variable's value is modified and print both old and new values.
+
+// executed break q5.cpp:9 command
+Starting program: /home/vinayak/Documents/9_Loosers/q5/q5 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, insertionSort (arr=0x7fffffffdb20, n=5) at q5.cpp:9
+9			key = arr[i];
+
+// executed watch key command
+Hardware watchpoint 2: key
+
+// executed continue command
+Hardware watchpoint 2: key
+
+Old value = 0
+New value = 3
+insertionSort (arr=0x7fffffffdb20, n=5) at q5.cpp:10
+10			j = i - 1;
+
+
+// 13. finish command - to run a program until the current function is finished.
+
+// executed break insertionSort command
+Breakpoint 1 at 0x1218: file q5.cpp, line 7.
+
+// executed run command
+Starting program: /home/vinayak/Documents/9_Loosers/q5/q5 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, insertionSort (arr=0x7fffffffdb20, n=5) at q5.cpp:7
+7		for (i = 1; i < n; i++)
+
+// executed finish command
+Run till exit from #0  insertionSort (arr=0x7fffffffdb20, n=5) at q5.cpp:7
+main () at q5.cpp:38
+38		printArray(arr, N);
+
+
+// 14. backtrace command - to produce a stack trace of the function calls that lead to a seg fault. 
+
+// executed break q5new.cpp command
+Breakpoint 1 at 0x11de: file q5new.cpp, line 6.
+
+// executed run command
+Starting program: /home/vinayak/Documents/9_Loosers/q5/q5new 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, fact (n=5) at q5new.cpp:6
+6	        return n*fact(n-1);
+
+// executed continue command
+Continuing.
+
+Breakpoint 1, fact (n=4) at q5new.cpp:6
+6	        return n*fact(n-1);
+
+// executed backtrace command
+#0  fact (n=4) at q5new.cpp:6
+#1  0x00005555555551eb in fact (n=5) at q5new.cpp:6
+#2  0x0000555555555233 in main () at q5new.cpp:17
+
+
+// 15. where command - same as backtrace but it also works when you're still in the middle of the program.  
+
+// executed break q5new.cpp:6 command
+Breakpoint 1 at 0x11de: file q5new.cpp, line 6.
+
+// executed run command
+Starting program: /home/vinayak/Documents/9_Loosers/q5/q5new 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, fact (n=5) at q5new.cpp:6
+6	        return n*fact(n-1);
+
+// executed where command
+#0  fact (n=5) at q5new.cpp:6
+#1  0x0000555555555233 in main () at q5new.cpp:17
+
+
+// 16. exit command - to exit out of GDB.
+
+// 17. delete command - to delete one or more breakpoints.
+
+// 18. diable command - to disable a command.
+
+// 19. enable command - to enable a disabled command.
+
+// 20. file command - to tell gdb which executable file to debug. 

@@ -1,0 +1,18 @@
+Starting program: /home/vinayak/Documents/9_Loosers/q9/q8modified 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main () at q8modified.cpp:7
+7	    int a = n*n;
+$1 = 5
+Continuing.
+[Inferior 1 (process 39515) exited normally]
+Starting program: /home/aditya/Downloads/h2/q9/q8modified 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main () at q8modified.cpp:7
+7	    int a = n*n;
+$1 = 5
+Continuing.
+[Inferior 1 (process 8053) exited normally]

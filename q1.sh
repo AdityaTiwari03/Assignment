@@ -1,25 +1,39 @@
-#!/usr/bin/bash
-mkdir 1st
-cd 1st
-git init -b master
-echo "Content 1" > file1
-git add file1
-git commit -m "1st"
-cp file1 file2
-git add file2
-git commit -m "2nd"
-git graph
-cd -
+#! /usr/bin/bash
+mkdir withoutPackfiles
+mkdir withPackfiles
+cd withoutPackfiles
+fallocate -l 102400 file-1
+git init
+git add file-1
+git commit -m "1st commit"
+echo "Your disk usage is - "
+git count-objects -vH
+git gc && du -sh .git/
+echo 'Now it is - '
+git count-objects -vH
+echo  " changed by me" >> file-1
+git add file-1
+git commit -m "again commited"
+echo "Your disk usage is - "
+git count-objects -vH
+git gc && du -sh .git/
+echo 'Now it is - '
+git count-objects -vH
 
-mkdir 2nd 
-cd 2nd
-git init -b master
-echo "Content 1" > file1
-git add file1
-git commit -m "1st"
-mv file1 file2
-git rm file1
-git add file2
-git commit -m "2nd"
-git graph
-cd -
+
+cd withPackfiles
+fallocate -l 102400 file-1
+git init 
+git add file-1
+git commit -m "1st commit"
+echo  " changed by me" >> file-1
+git add file-1
+git commit -m "again commited"
+echo "Your disk usage is - "
+git count-objects -vH
+git repack
+echo 'Now it is - '
+git count-objects -vH
+ 
+
+#repack command generally decreases disk uses by eliminating unnecessary content in disk, but here disk space is increasing. 

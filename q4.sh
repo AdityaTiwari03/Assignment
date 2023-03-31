@@ -1,9 +1,11 @@
 #! /usr/bin/bash
-echo "first file" > f1
-a = $(readlink -f f1.txt) 
-git init -b master
-git add f1
-git commit -m "1st"
-echo "first file changed" > f1
-git commit -a -m "Your commit message"
-git status
+git init
+git config --global user.signingkey Aditya 
+touch f1
+git add .
+git commit -m "1"
+echo "change" >> f1
+git add .
+git commit -S -m "2" 
+a=($(git rev-parse HEAD))
+git verify-commit ${a}

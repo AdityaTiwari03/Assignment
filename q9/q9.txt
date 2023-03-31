@@ -1,0 +1,1 @@
+We can automate execution of gdb using shell scripting. My solution to problem 8 is contained in q9.sh.

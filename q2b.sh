@@ -1,28 +1,13 @@
 #! /usr/bin/bash
-
-branch_at_ancestor(){
-    # First argument will contain hash of function
-    echo "Processing commit $2"
-    git branch branch$2 $1
-    parent=$(git rev-parse $1^)
-
-    if [[ -n $(git cat-file -p $1 | grep parent) ]]
-    then
-        branch_at_ancestor $parent $(($2 + 1)) 
-    fi
-}
-git init -b master
-for i in $(seq 10)
-do 
-    echo "This is $i th file" > $i
-    git add $i
-    git commit -m "This is commit count $i"
-done
-
-
-initial=$(git rev-parse HEAD^)
-
-branch_at_ancestor $initial 1
-
-git graph
- 
+git init
+touch f1
+git add .
+git commit -m '1st'
+touch d2
+git add .
+git commit -m "2nd"
+echo f1 "change" >> f2
+git add .
+git commit -m "3rd"
+git push https://github.com/AdityaTiwari03/dummy.git
+git gc --prune=now #prune from remote repo "dummy"

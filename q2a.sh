@@ -1,18 +1,13 @@
 #! /usr/bin/bash
-git init -b master
-for i in $(seq 10)
-do 
-	echo "This is $i th file" > $i
-	git add $i
-	git commit -m "This is commit count $i"
-done
-
-iter=$(git rev-parse HEAD)
-for i in $(seq 9)
-do
-	iter=$(git rev-parse $iter~)
-	git branch branch$i $iter
-done
-
-git graph
- 
+git init
+touch f1
+git add .
+git commit -m '1st'
+touch d2
+git add .
+git commit -m "2nd"
+echo f1 "change" >> f2
+git add .
+git commit -m "3rd"
+git fsck --unreachable #finds unreachable files
+git prune --dry-run

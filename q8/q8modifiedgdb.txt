@@ -1,0 +1,17 @@
+// executed break q8.cpp:7 command
+Breakpoint 1 at 0x119c: file q8modified.cpp, line 7.
+
+// executed run command
+Starting program: /home/vinayak/Documents/9_Loosers/q8/q8modified 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main () at q8modified.cpp:7
+7	    int a = n*n;
+
+// executed print n command
+$1 = 5
+
+// executed continue command
+Continuing.
+[Inferior 1 (process 39515) exited normally]
