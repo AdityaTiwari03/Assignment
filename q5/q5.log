@@ -1,15 +1,5 @@
-// The first 13 commands are executed on q5.cpp. and the remaining on q5new.cpp.
-
-// 1. run command - to run a program.
-
-// executed run 5 1 3 5 2 4
-Starting program: /home/vinayak/Documents/9_Loosers/q5/q5 5 1 3 5 2 4
-[Thread debugging using libthread_db enabled]
-Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
-[Inferior 1 (process 42466) exited normally]
-
-
-// 2. help command - to get help about gdb commands
+"// Running help command"
+List of classes of commands:
 
 aliases -- User-defined aliases of other commands.
 breakpoints -- Making program stop at certain points.
@@ -20,10 +10,10 @@ obscure -- Obscure features.
 running -- Running the program.
 stack -- Examining the stack.
 status -- Status inquiries.
-support -- Support facilities.  // pressed c to continue without paging.
+support -- Support facilities.
 text-user-interface -- TUI is the GDB text based interface.
 tracepoints -- Tracing of program execution without stopping the program.
-user-defined -- User-defined commands. 
+user-defined -- User-defined commands.
 
 Type "help" followed by a class name for a list of commands in that class.
 Type "help all" for the list of all commands.
@@ -32,175 +22,319 @@ Type "apropos word" to search for commands related to "word".
 Type "apropos -v word" for full documentation of commands related to "word".
 Command name abbreviations are allowed if unambiguous.
 
+"// running file command"
+Reading symbols from q5...
+"// running list command"
+15			}
+16			arr[j + 1] = key;
+17		}
+18	}
+19	
+20	void printArray(int arr[], int n)
+21	{
+22		int i;
+23		for (i = 0; i < n; i++)
+24			cout << arr[i] << " ";
+28	int main()
+29	{   
+30	    int N;
+31	    cin>>N;
+32	    int arr[N];
+33	    for(int i = 0; i<N; i++){
+34	        cin>>arr[i];
+35	    }
+36	
+37		insertionSort(arr, N);
+38		printArray(arr, N);
+39	
+40		return 0;
+41	}
+"// adding breakpoint at line 34"
+Breakpoint 1 at 0x137f: file q5.cpp, line 34.
+"// using run, step, next, finish to navigate the program"
+"// using run, step, next, finish to navigate the program"Starting program: /home/sbdaule/Documents/IIT Bhilai/Sem IV/CS200 STT II/Assignment/Assignment 4/Assignment/q5/my/q5 
 
-// 3. break command - to set a breakpoint at a particular line or a function
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.archlinux.org>
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
 
-// executed break insertionSort
-Breakpoint 1 at 0x11f1
-
-
-// 4. continue command - to proceed onto the next breakpoint from current breakpoint
-
-// first executed run command
-Breakpoint 1, 0x00005555555551f1 in insertionSort(int*, int) ()
-
-// then executed continue command
-Continuing.
-[Inferior 1 (process 38723) exited normally]
-
-
-// 5. next command - to execute the next instruction after it encounters a breakpoint.
-
-// first executed run 5 1 3 5 2 4
-Breakpoint 1, 0x00005555555551f1 in insertionSort(int*, int) ()
-
-// then executed next command
-Single stepping until exit from function _Z13insertionSortPii,
-which has no line number information.
-0x0000555555555385 in main ()
-
-
-// 6. clear command - to delete a breakpoint at a particular line or a particular function.
-
-// executed clear insertionSort
-Deleted breakpoint 1
-
-
-// 7. info breakpoints command - to display information about all declared breakpoints.
-
-Num     Type           Disp Enb Address            What
-3       breakpoint     keep y   0x00000000000012b7 <printArray(int*, int)+8>
-
-
-// 8. show args command - to print the default arguments that will be passed if the run command is executed.
-
-Argument list to give program being debugged when it is started is "5 1 3 5 2 4".
-
-
-// 9. display command - to enable automatic displaying of expressions each time whenever the execution reaches the breakpoint.
-
-// executed run command
-Breakpoint 1, main () at q5.cpp:33
+Breakpoint 1, main () at q5.cpp:34
+34	        cin>>arr[i];
 33	    for(int i = 0; i<N; i++){
 
-// executed display /d i
-1: /d i = 0
-
-
-// 10. print command - to print the value of a given expression.
-
-// executed run command
-Breakpoint 1, main () at q5.cpp:33
+Breakpoint 1, main () at q5.cpp:34
+34	        cin>>arr[i];
 33	    for(int i = 0; i<N; i++){
 
-// executed print i
-$1 = 0
+Breakpoint 1, main () at q5.cpp:34
+34	        cin>>arr[i];
+33	    for(int i = 0; i<N; i++){
 
+Breakpoint 1, main () at q5.cpp:34
+34	        cin>>arr[i];
+33	    for(int i = 0; i<N; i++){
 
-// 11. step command - to execute just the next line of code after reaching a breakpoint.
-
-// executed run command
-Starting program: /home/vinayak/Documents/9_Loosers/q5/q5 
-[Thread debugging using libthread_db enabled]
-Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
-
-Breakpoint 1, insertionSort (arr=0x7fffffffdae0, n=5) at q5.cpp:9
-9			key = arr[i];
-
-// executed step command
-10			j = i - 1;
-
-
-// 12.  watch command - to pause a program whenever a watched variable's value is modified and print both old and new values.
-
-// executed break q5.cpp:9 command
-Starting program: /home/vinayak/Documents/9_Loosers/q5/q5 
-[Thread debugging using libthread_db enabled]
-Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
-
-Breakpoint 1, insertionSort (arr=0x7fffffffdb20, n=5) at q5.cpp:9
-9			key = arr[i];
-
-// executed watch key command
-Hardware watchpoint 2: key
-
-// executed continue command
-Hardware watchpoint 2: key
-
-Old value = 0
-New value = 3
-insertionSort (arr=0x7fffffffdb20, n=5) at q5.cpp:10
-10			j = i - 1;
-
-
-// 13. finish command - to run a program until the current function is finished.
-
-// executed break insertionSort command
-Breakpoint 1 at 0x1218: file q5.cpp, line 7.
-
-// executed run command
-Starting program: /home/vinayak/Documents/9_Loosers/q5/q5 
-[Thread debugging using libthread_db enabled]
-Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
-
-Breakpoint 1, insertionSort (arr=0x7fffffffdb20, n=5) at q5.cpp:7
+Breakpoint 1, main () at q5.cpp:34
+34	        cin>>arr[i];
+Undefined command: "2".  Try "help".
+33	    for(int i = 0; i<N; i++){
+37		insertionSort(arr, N);
+28	int main()
+29	{   
+30	    int N;
+31	    cin>>N;
+32	    int arr[N];
+33	    for(int i = 0; i<N; i++){
+34	        cin>>arr[i];
+35	    }
+36	
+37		insertionSort(arr, N);
+38		printArray(arr, N);
+39	
+40		return 0;
+41	}
+insertionSort (arr=0x7fffffffe1f0, n=5) at q5.cpp:7
 7		for (i = 1; i < n; i++)
-
-// executed finish command
-Run till exit from #0  insertionSort (arr=0x7fffffffdb20, n=5) at q5.cpp:7
+2	using namespace std;
+3	
+4	void insertionSort(int arr[], int n)
+5	{
+6		int i, key, j;
+7		for (i = 1; i < n; i++)
+8		{
+9			key = arr[i];
+10			j = i - 1;
+11			while (j >= 0 && arr[j] > key)
+1	#include <bits/stdc++.h>
+2	using namespace std;
+3	
+4	void insertionSort(int arr[], int n)
+5	{
+6		int i, key, j;
+7		for (i = 1; i < n; i++)
+8		{
+9			key = arr[i];
+10			j = i - 1;
+4	void insertionSort(int arr[], int n)
+5	{
+6		int i, key, j;
+7		for (i = 1; i < n; i++)
+8		{
+9			key = arr[i];
+10			j = i - 1;
+11			while (j >= 0 && arr[j] > key)
+12			{
+13				arr[j + 1] = arr[j];
+14				j = j - 1;
+15			}
+16			arr[j + 1] = key;
+17		}
+18	}
+9			key = arr[i];
+10			j = i - 1;
+11			while (j >= 0 && arr[j] > key)
+16			arr[j + 1] = key;
+Run till exit from #0  insertionSort (arr=0x7fffffffe1f0, n=5) at q5.cpp:16
 main () at q5.cpp:38
 38		printArray(arr, N);
-
-
-// 14. backtrace command - to produce a stack trace of the function calls that lead to a seg fault. 
-
-// executed break q5new.cpp command
-Breakpoint 1 at 0x11de: file q5new.cpp, line 6.
-
-// executed run command
-Starting program: /home/vinayak/Documents/9_Loosers/q5/q5new 
+"// Using continue to finish program execution"
+Continuing.
+[Inferior 1 (process 82632) exited normally]
+Starting program: /home/sbdaule/Documents/IIT Bhilai/Sem IV/CS200 STT II/Assignment/Assignment 4/Assignment/q5/my/q5 
 [Thread debugging using libthread_db enabled]
-Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
 
-Breakpoint 1, fact (n=5) at q5new.cpp:6
-6	        return n*fact(n-1);
-
-// executed continue command
+Breakpoint 1, main () at q5.cpp:34
+34	        cin>>arr[i];
+"// Using delete to remove breakpoint"
+"// Using print to get value of N"
+$1 = 6
+"// Using until to move to a point after all inputs have been received"
+main () at q5.cpp:37
+37		insertionSort(arr, N);
+"// Using printf and while to print array"
+The 1 th value of arry is 3
+The 2 th value of arry is 6
+The 3 th value of arry is 7
+The 4 th value of arry is 8
+The 5 th value of arry is 3
+32	    int arr[N];
+33	    for(int i = 0; i<N; i++){
+34	        cin>>arr[i];
+35	    }
+36	
+37		insertionSort(arr, N);
+38		printArray(arr, N);
+39	
+40		return 0;
+41	}
+insertionSort (arr=0x7fffffffe1f0, n=6) at q5.cpp:7
+7		for (i = 1; i < n; i++)
+2	using namespace std;
+3	
+4	void insertionSort(int arr[], int n)
+5	{
+6		int i, key, j;
+7		for (i = 1; i < n; i++)
+8		{
+9			key = arr[i];
+10			j = i - 1;
+11			while (j >= 0 && arr[j] > key)
+2	using namespace std;
+3	
+4	void insertionSort(int arr[], int n)
+5	{
+6		int i, key, j;
+7		for (i = 1; i < n; i++)
+8		{
+9			key = arr[i];
+10			j = i - 1;
+11			while (j >= 0 && arr[j] > key)
+12			{
+13				arr[j + 1] = arr[j];
+14				j = j - 1;
+15			}
+16			arr[j + 1] = key;
+17		}
+18	}
+19	
+20	void printArray(int arr[], int n)
+Breakpoint 2 at 0x5555555551d4: file q5.cpp, line 13.
 Continuing.
 
-Breakpoint 1, fact (n=4) at q5new.cpp:6
-6	        return n*fact(n-1);
+Breakpoint 2, insertionSort (arr=0x7fffffffe1f0, n=6) at q5.cpp:13
+13				arr[j + 1] = arr[j];
+8		{
+9			key = arr[i];
+10			j = i - 1;
+11			while (j >= 0 && arr[j] > key)
+12			{
+13				arr[j + 1] = arr[j];
+14				j = j - 1;
+15			}
+16			arr[j + 1] = key;
+17		}
 
-// executed backtrace command
-#0  fact (n=4) at q5new.cpp:6
-#1  0x00005555555551eb in fact (n=5) at q5new.cpp:6
-#2  0x0000555555555233 in main () at q5new.cpp:17
+i = 1
+key = 3
+j = 0
+#0  insertionSort (arr=0x7fffffffe1f0, n=6) at q5.cpp:13
+#1  0x00005555555553c2 in main () at q5.cpp:37
+"// using backtrace and info locals"
+Num     Type           Disp Enb Address            What
+2       breakpoint     keep y   0x00005555555551d4 in insertionSort(int*, int) at q5.cpp:13
+	breakpoint already hit 1 time
+18	}
+19	
+20	void printArray(int arr[], int n)
+21	{
+22		int i;
+23		for (i = 0; i < n; i++)
+24			cout << arr[i] << " ";
+25		cout << endl;
+26	}
+27	
+28	int main()
+29	{   
+30	    int N;
+31	    cin>>N;
+32	    int arr[N];
+33	    for(int i = 0; i<N; i++){
+34	        cin>>arr[i];
+35	    }
+36	
+37		insertionSort(arr, N);
+Breakpoint 3 at 0x55555555526a: file q5.cpp, line 23.
+Continuing.
 
+Breakpoint 2, insertionSort (arr=0x7fffffffe1f0, n=6) at q5.cpp:13
+13				arr[j + 1] = arr[j];
+Continuing.
 
-// 15. where command - same as backtrace but it also works when you're still in the middle of the program.  
+Breakpoint 2, insertionSort (arr=0x7fffffffe1f0, n=6) at q5.cpp:13
+13				arr[j + 1] = arr[j];
+Continuing.
 
-// executed break q5new.cpp:6 command
-Breakpoint 1 at 0x11de: file q5new.cpp, line 6.
+Breakpoint 2, insertionSort (arr=0x7fffffffe1f0, n=6) at q5.cpp:13
+13				arr[j + 1] = arr[j];
+$3 = 2
+8		{
+9			key = arr[i];
+10			j = i - 1;
+11			while (j >= 0 && arr[j] > key)
+12			{
+13				arr[j + 1] = arr[j];
+14				j = j - 1;
+15			}
+16			arr[j + 1] = key;
+17		}
+Num     Type           Disp Enb Address            What
+2       breakpoint     keep y   0x00005555555551d4 in insertionSort(int*, int) at q5.cpp:13
+	breakpoint already hit 4 times
+3       breakpoint     keep y   0x000055555555526a in printArray(int*, int) at q5.cpp:23
+"// as we keep hitting this breakpoint, disabling it"
+Num     Type           Disp Enb Address            What
+2       breakpoint     keep n   0x00005555555551d4 in insertionSort(int*, int) at q5.cpp:13
+	breakpoint already hit 4 times
+3       breakpoint     keep y   0x000055555555526a in printArray(int*, int) at q5.cpp:23
+Continuing.
 
-// executed run command
-Starting program: /home/vinayak/Documents/9_Loosers/q5/q5new 
+Breakpoint 3, printArray (arr=0x7fffffffe1f0, n=6) at q5.cpp:23
+23		for (i = 0; i < n; i++)
+18	}
+19	
+20	void printArray(int arr[], int n)
+21	{
+22		int i;
+23		for (i = 0; i < n; i++)
+24			cout << arr[i] << " ";
+25		cout << endl;
+26	}
+27	
+Continuing.
+[Inferior 1 (process 87408) exited normally]
+Num     Type           Disp Enb Address            What
+2       breakpoint     keep n   0x00005555555551d4 in insertionSort(int*, int) at q5.cpp:13
+	breakpoint already hit 4 times
+3       breakpoint     keep y   0x000055555555526a in printArray(int*, int) at q5.cpp:23
+	breakpoint already hit 1 time
+"// Reenabling the breakpoint"
+Num     Type           Disp Enb Address            What
+2       breakpoint     keep y   0x00005555555551d4 in insertionSort(int*, int) at q5.cpp:13
+	breakpoint already hit 4 times
+3       breakpoint     keep y   0x000055555555526a in printArray(int*, int) at q5.cpp:23
+	breakpoint already hit 1 time
+// Using clear to clear all breakpointsDeleted breakpoint 3 
+Num     Type           Disp Enb Address            What
+2       breakpoint     keep y   0x00005555555551d4 in insertionSort(int*, int) at q5.cpp:13
+	breakpoint already hit 4 times
+No breakpoint at this line.
+Starting program: /home/sbdaule/Documents/IIT Bhilai/Sem IV/CS200 STT II/Assignment/Assignment 4/Assignment/q5/my/q5 
 [Thread debugging using libthread_db enabled]
-Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+[Inferior 1 (process 88490) exited normally]
+Num     Type           Disp Enb Address            What
+2       breakpoint     keep y   0x00005555555551d4 in insertionSort(int*, int) at q5.cpp:13
+Breakpoint 4 at 0x5555555553b1: file q5.cpp, line 37.
+Starting program: /home/sbdaule/Documents/IIT Bhilai/Sem IV/CS200 STT II/Assignment/Assignment 4/Assignment/q5/my/q5 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
 
-Breakpoint 1, fact (n=5) at q5new.cpp:6
-6	        return n*fact(n-1);
+Breakpoint 4, main () at q5.cpp:37
+37		insertionSort(arr, N);
+// Using whatis
+type = int
+type = int [5]
 
-// executed where command
-#0  fact (n=5) at q5new.cpp:6
-#1  0x0000555555555233 in main () at q5new.cpp:17
+// While making this log file, echo has been used to add all the comments
+// Finally finish program execution and quit using quit command
+Continuing.
 
-
-// 16. exit command - to exit out of GDB.
-
-// 17. delete command - to delete one or more breakpoints.
-
-// 18. diable command - to disable a command.
-
-// 19. enable command - to enable a disabled command.
-
-// 20. file command - to tell gdb which executable file to debug. 
+Breakpoint 2, insertionSort (arr=0x7fffffffe1f0, n=5) at q5.cpp:13
+13				arr[j + 1] = arr[j];
+Deleted breakpoint 2 
+Continuing.
+[Inferior 1 (process 88498) exited normally]
