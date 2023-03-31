@@ -3,8 +3,8 @@ using namespace std;
 
 int main()
 {   
-    int n = 5;
-    int a = n*n;
-    cout<<n+a;
+    int n = 10;
+    int a = n * n;
+    cout << n + a;
 	return 0;
 }
