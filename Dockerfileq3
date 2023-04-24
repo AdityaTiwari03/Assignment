@@ -1,0 +1,15 @@
+FROM debian:latest #Base Image
+
+RUN apt-get update && apt-get install -y sudo #update the package index and install the sudo package.
+
+RUN groupadd -g 1001 aditya && \ # add 1st user
+    useradd -u 1001 -g aditya -m aditya && \ 
+    groupadd -g 1002 shubham && \ # add 2nd user
+    useradd -u 1002 -g shubham -m shubham && \
+    groupadd -g 1003 dhruv && \ # add 3rd user
+    useradd -u 1003 -g dhruv -m dhruv
+
+RUN usermod -aG sudo aditya && \ #fire it
+    usermod -aG sudo shubham && \
+    usermod -aG sudo dhruv
+

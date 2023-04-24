@@ -1,0 +1,6 @@
+FROM alpine:latest # Pull the Base image
+RUN apk add --no-cache netcat-openbsd ## Install netcat (nc) command
+RUN echo "Welcome to the chat server. Type your message and hit enter." > /welcome.txt # Create a chat server container welcome.txt is the text sent to client which is connected
+CMD ["nc", "-l", "5555", "-c", "cat /welcome.txt | nc -l 5000"] #assign port 5000
+CMD ["sh"] # Create a chat client container
+
